@@ -3,12 +3,20 @@ Write a short Python function that takes a positive integer n and returns the
 sum of the squares of all the positive integers smaller than n.
 '''
 
-def smaller_squares(k):
+def sum_squares(k):
 	sum = 0
-	for x in range(k,0,-1):
-		square = x**2
-		sum += square
-	print sum
+	try:
+		for x in range(k,0,-1):
+			square = x**2
+			sum += square
+		print sum
+	except TypeError:
+		print("Input object is not an integer")
+
 
 if __name__ == '__main__':
-	smaller_squares(10)
+	sum_squares(10)
+	sum_squares('Radio')
+	k =10
+	sum_squares = sum([pow(x,2) for x in range(k,0,-1)])
+	print sum_squares
