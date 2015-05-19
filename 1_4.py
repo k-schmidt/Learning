@@ -17,6 +17,7 @@ def sum_squares(k):
 if __name__ == '__main__':
 	sum_squares(10)
 	sum_squares('Radio')
+	sum_squares([2, 4, 6, 8])
 	k =10
 	sum_squares = sum([pow(x,2) for x in range(k,0,-1)])
 	print sum_squares
