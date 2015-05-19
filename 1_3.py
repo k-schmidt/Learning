@@ -7,14 +7,14 @@ Do not use the built-in functions min or max in implementing your solution.
 
 def minmax(data):
     biggest = data[0]
-    smallest = data[0]
-    for val in data:
-        if val > biggest:
-            biggest = val
-	if val < biggest:
-	    smallest = val
-	print (biggest, smallest)
+	smallest = data[0]
+	for val in data:
+		if val > biggest:
+			biggest = val
+		if val < smallest:
+			smallest = val
+	print (smallest, biggest)
 
 if __name__ == '__main__':
-    minmax([2,4,6,8,10])
-    minmax([3,2,6,20,4,7])
+	minmax([1,2,3,4,5])
+	minmax([-1,7,8,100,4,2])
