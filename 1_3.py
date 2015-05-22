@@ -6,7 +6,7 @@ Do not use the built-in functions min or max in implementing your solution.
 '''
 
 def minmax(data):
-    biggest = data[0]
+	biggest = data[0]
 	smallest = data[0]
 	for val in data:
 		if val > biggest:
