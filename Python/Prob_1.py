@@ -7,10 +7,10 @@ def listnum(numberlist):
 
 L= []
 for x in xrange(1,1000):
-	if x % 3 == 0:
-		L.append(x)
-	elif x % 5 == 0:
+	if x % 3 == 0 or x % 5 == 0:
 		L.append(x)
 	else:
 		next
-listnum(L)
+
+if __name__ == '__main__':
+	listnum(L)
