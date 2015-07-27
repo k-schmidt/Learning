@@ -20,4 +20,4 @@ def prime_factor(x,n):
         print "{0} is greater than {1}.".format(x,n)
 
 if __name__ == '__main__':
-	prime_factor(4,2)
+	prime_factor(2,100)
