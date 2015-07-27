@@ -4,17 +4,20 @@ The prime factors of 13195 are 5, 7, 13 and 29.
 What is the largest prime factor of the number 600851475143 ?
 '''
 
-def is_prime(a):
-    if all(a % i for i in xrange(2, a)):
-		return a
-
-def list_primes(n):
-	A = [True] * n 
-	for i in xrange(2, n**(0.5) + 1,2):
-		if A[i]:
-			A[i*i::2*i] = [False]*((n-i*i-1)/(2*i)+1)
-	return [2] + [i for i in xrange(3,n,2) if A[i]]
-
+def prime_factor(x,n):
+    L=[2]
+    if x < n:
+        if n % x == 0:
+            if any(x % i == 0 for i in L):
+                prime_factor(x + 1, n)
+            else:
+                L.append(x)
+                print L
+                prime_factor(x + 1, n)
+        else:
+            prime_factor(x + 1, n)
+    else:
+        print "{0} is greater than {1}.".format(x,n)
 
 if __name__ == '__main__':
-	list_primes(600851475143)
+	prime_factor(4,2)
