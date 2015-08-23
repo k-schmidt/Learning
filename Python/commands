@@ -1,0 +1,46 @@
+These are commands that VIM accepts.
+Compiled by Kyle Schmidt
+20150329
+
+:e!  - Returns to the last saved version of a file.
+:q!  - Wipe out all edits and just quit.
+	The exclamation point tells vi to override all edits.
+
+h  - Move cursor left
+j  - Move cursor down
+k  - Move cursor up
+l - Move cursor right
+	4l  - Moves cursor right four spaces
+
+0  - Move to beginning of line (digit zero)
+$  - Move to end of line
+
+:setnu  - Set line numbers
+
+w  - Move forward one word at a time.
+W  - Move forward by word not counting punctuation.
+b  - Move backward by word.
+B  - Move backward by word not counting punctuation.
+	-These movements can also be "multiplied" i.e. 4B or 4w
+G  - Move to a specific line number.
+	1G  - top of file.
+	Also known as the (Go to Command)
+
+To move or copy text, you can combine the following commands
+c  - change
+d  - delete
+	move text with delete
+p  - put
+	then put the deleted text where you desire (cut & paste)
+y  - copy text (then "p" for put)
+cw  - change everything to the end of the word.
+c2b - change everything to the last two words before the cursor's position.
+c$  - change everything to the end of the line.
+	Also the same as "C".
+c0  - change everything to the beginning of the line.
+	c (Like i and a leaves you in insert mode until you press the ESC key)
+cc  - change everything on the current line of the editor.
+r  - make a change to one character.
+	VIM only allows for one character change using this command. Simply call r, VIM enters INSERT mode, insert one character change, finally VIM exits back to command mode.
+
+
