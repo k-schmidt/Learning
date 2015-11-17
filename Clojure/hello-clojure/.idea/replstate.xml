@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ReplState" timestamp="1445384260498">{:repl-history {:ide [], :local [&quot;(+ 1 1)&quot; &quot;(println \&quot;Hello, World!\&quot;)&quot; &quot;(+ 5 8)&quot; &quot;(* 13 10)&quot; &quot;(let [a 1\n      b 2]\n  (+ a b))&quot; &quot;(ns hello-clojure.core\n  (:gen-class))\n\n(defn -main\n  \&quot;I don't do a whole lot ... yet.\&quot;\n  [&amp; args]\n  (println \&quot;Hello, World!\&quot;))\n&quot; &quot;(range 4)&quot; &quot;(range)&quot; &quot;;(+ 2 2)&quot; &quot;(+ 2 2)&quot;], :remote []}}</component>
+</project>

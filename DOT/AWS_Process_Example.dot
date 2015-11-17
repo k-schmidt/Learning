@@ -1,0 +1,26 @@
+digraph AWSProcess {
+	subgraph cluster_s3 { // Must prefix with 'cluster if you want grouping
+		node [style=filled, color=grey];
+		style=filled;
+		color=lightgrey;
+		EC2 -> MySQL -> Lambda -> KeplerSFTP;
+		label="AWS Process";
+		color=orange;
+	}
+
+	subgraph cluster_keplerclient {
+		node [style=filled];
+		ManualPull -> ClientServer;
+		label="Kepler Client";
+		color=blue;
+	}
+
+	start [label="Executive Discussion", shape=Mdiamond];
+	start -> EC2;
+	start -> ManualPull;
+
+	ClientServer -> Lambda [label="Weekly manual\ntransfer", fontcolor=red];
+
+	end [label="Final Product", shape=Msquare];
+	KeplerSFTP -> end;
+}

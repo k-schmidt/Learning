@@ -1,0 +1,36 @@
+digraph Unit_Approval {
+	/**************************************************************************
+	  * Node and Cluster Attributes
+	  ************************************************************************/
+	rankdir=LR labelloc=t;
+	node [style=filled fillcolor=lightgrey color=black shape=square];
+
+	subgraph cluster_AWS {
+		//Styles
+		label=<<B>AWS S3 Bucket s3://kepler-axa-ingestion</B>>;
+		style=filled fillcolor=limegreen color=black;
+
+		//Nodes
+		S3key [label="/403b key"];
+	}
+	subgraph cluster_AXA {
+		//Styles
+		label=<<B>AXA EC2 Instance</B>>;
+		style=filled fillcolor=salmon color=black;
+
+		//Nodes
+		MySQL [label="MySQL DB"];
+		CodeBase [label="Codebase\n&\nTemp Data Store"];
+	}
+	/**************************************************************************
+  	* Node Relationships
+  	**************************************************************************/
+	S3key -> CodeBase;
+	CodeBase -> MySQL;
+
+	/**************************************************************************
+	  * Chart Title
+	  ************************************************************************/
+	fontname="Times-Bold" fontsize=40.0;
+	label=<<B>AXA Unit Approval Ingestion</B>>;
+}

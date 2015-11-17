@@ -1,0 +1,32 @@
+digraph FLASHTALKINGINGESTION {
+	/**************************************************************************
+	  * Node and Cluster Attributes ******************************************/
+	rankdir=LR labelloc=t;
+	node [style=filled fillcolor=lightgrey color=black shape=square];
+
+	subgraph cluster_s3_displaced {
+		// Styles
+		fontsize=25.0;
+		label=<<B>AWS S3</B>>;
+		style=filled fillcolor=tan1 color=black;
+
+		// Nodes
+		Raw_S3_Files [label="s3://kepler-flashtalking-transfer\n/Advertiser/Date_Table" style=filled fillcolor=firebrick1];
+		S3_Transformed [label="s3://kepler-hive-production-data\n/Database/Table/Date (bzip2)" style=filled fillcolor=firebrick4];
+		S3_Hive_Transformed [label="s3://kepler-hive-production-data\n/Database/Table/Date (parquet)" style=filled fillcolor=lightpink1];
+	}
+
+	ALTER_TABLE [label="ALTER TABLE\nADD PARTITION" style=filled fillcolor=goldenrod3 shape=tripleoctagon];
+/******************************************************************************
+  * Node Relationships
+******************************************************************************/
+	Raw_S3_Files -> S3_Transformed [label="Lambda:\ns3 key reorganization & bzip2"];
+	S3_Transformed -> S3_Hive_Transformed [label="Hive Script:\nSTORED AS PARQUET"];
+	S3_Hive_Transformed -> ALTER_TABLE [label="Check Meta\n&\nHive Refesh"];
+
+/******************************************************************************
+  * Chart Title
+******************************************************************************/
+	fontname="Times-Bold" fontsize=40.0;
+	label=<<B>Kepler Intelligence Platform - Flashtalking Ingestion</B>>;
+}

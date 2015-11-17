@@ -1,0 +1,12 @@
+digraph Ingestion_403b_DM {
+	subgraph cluster_AWS_Environment {
+		node [style=filled, color=orange];
+		style=filled;
+		Ingestion_Folder MySQL -> Processed_Folder -> MySQL_Stored_Procedure;
+		label="AWS Environment";
+	}
+
+	start [label="Local Device", shape=Msquare];
+	start -> Ingestion_Folder [label="Upload",color=black];
+	Ingestion_Folder -> MySQL [label="Python Begins", fontcolor=blue];
+}

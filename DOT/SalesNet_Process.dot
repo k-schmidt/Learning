@@ -1,0 +1,33 @@
+digraph SalesNet_Process {
+        rankdir=RL labellcol=t;
+		node [style=filled fillcolor=lightgrey color=black shape=square];
+
+		Kepler_AXA_S3BUCKET [label="Kepler-AXA\nAWS S3 BUCKET" fillcolor=gold shape=octagon];
+
+		subgraph cluster_AWS_Environment {
+                node [style=filled, color=gold];
+                style=filled;
+				color=salmon;
+                SalesNet_Data_Folder MySQL MySQL_Temp_Directory;
+                label="AWS Environment";
+        }
+
+        subgraph cluster_HS5_Environment {
+                node [style=filled];
+                style=filled;
+                color=seagreen1;
+                start [label="HS5 SFTP\nsalesnet_indata", shape=Msquare, color=green4];
+                end [label="HS5 SFTP\nsalesnet_outdata", shape=Msquare, color = red];
+                label = "Kepler DataCenter Cluster";
+        }
+
+        start -> SalesNet_Data_Folder [label="SFTP\nFile Transfer",color=black];
+        SalesNet_Data_Folder -> MySQL [label="MySQL Load\nLocal Data", fontcolor=black];
+        MySQL -> Kepler_AXA_S3BUCKET [label="Upload and Delete",color=black];
+        MySQL -> MySQL_Temp_Directory [label="Download Report", color=black];
+        MySQL_Temp_Directory -> end [label="SFTP File Transfer", color=black];
+        MySQL_Temp_Directory -> Kepler_AXA_S3BUCKET [label="Upload and Delete", color=black];
+
+		fontname="Times-Bold" fontsize=25.0;
+		label=<<B>SalesNet Ingestion and Report Generation Process</B>>;
+}
