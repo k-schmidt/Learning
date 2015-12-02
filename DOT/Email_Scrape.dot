@@ -1,0 +1,38 @@
+digraph EmailTransfer {
+	/**************************************************************************
+	  * Node and cluster attributes
+	  ************************************************************************/
+	rankdir=LR labelloc=t;
+	node [style=filled fillcolor=Grey color=black shape=square];
+
+	subgraph cluster_aws {
+		//Styles
+		label=<<B>AWS S3</B>>;
+		style=filled fillcolor=gold color=black;
+
+		//Nodes
+		S3_BUCKET [label="kepler-kinesis-firehose"];
+	}
+
+	subgraph cluster_axa {
+		//Styles
+		label=<<B>AXA Server</B>>;
+		style=filled fillcolor=purple color=black;
+
+		//Nodes
+		Local [label="Local Filesystem"];
+		MySQL [label="MySQL Database"];
+	}
+
+	/**************************************************************************
+	  * Node Relationships
+	  ************************************************************************/
+	S3_BUCKET -> Local;
+	Local -> MySQL;
+
+	/**************************************************************************
+	  * Chart Title
+	  ************************************************************************/
+	fontname="Times-Bold" fontsize=20.0;
+	label=<<B>AXA Email S3 Sweep</B>>;
+}
