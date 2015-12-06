@@ -24,7 +24,7 @@ Repository of my experiments as I discover new languages.
 * Python book I am using to learn data structures and algorithms
 
 [Haskell](./Haskell)
-* Loved Haskell, but I love Clojure more. (Dynamic languages ++, developing in a REPL +++)
+* Loved Haskell, but I love Clojure more. (Dynamic language ++)
 
 [LaTex](./LaTex)
 * LaTex documents
